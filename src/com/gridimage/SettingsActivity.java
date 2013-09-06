@@ -24,9 +24,31 @@ public class SettingsActivity extends Activity {
 		EditText etSiteFilter = (EditText) findViewById(R.id.editTextSiteFilter);
 		
 		initImageColorFilterSpinner(spinnerImageColorFilter);
+		initImageSizeSpinner(spinnerImageSize);
+		initImageTypeSpinner(spinnerImageType);
 	}
 
 	private void initImageColorFilterSpinner(Spinner spinner) {
+		String[] imageFilters = new String[] {
+			"blue", 
+			"green",
+			"red"
+		};
+		SpinnerAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageFilters);
+		spinner.setAdapter(adapter);
+	}
+	
+	private void initImageSizeSpinner(Spinner spinner) {
+		String[] imageFilters = new String[] {
+			"blue", 
+			"green",
+			"red"
+		};
+		SpinnerAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageFilters);
+		spinner.setAdapter(adapter);
+	}
+	
+	private void initImageTypeSpinner(Spinner spinner) {
 		String[] imageFilters = new String[] {
 			"blue", 
 			"green",
