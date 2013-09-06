@@ -1,9 +1,14 @@
 package com.gridimage;
 
 import android.app.Activity;
+import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 public class SettingsActivity extends Activity {
 
@@ -17,6 +22,17 @@ public class SettingsActivity extends Activity {
 		Spinner spinnerImageSize = (Spinner) findViewById(R.id.spinnerImageSize);
 		Spinner spinnerImageType = (Spinner) findViewById(R.id.spinnerImageType);
 		EditText etSiteFilter = (EditText) findViewById(R.id.editTextSiteFilter);
+		
+		initImageColorFilterSpinner(spinnerImageColorFilter);
 	}
 
+	private void initImageColorFilterSpinner(Spinner spinner) {
+		String[] imageFilters = new String[] {
+			"blue", 
+			"green",
+			"red"
+		};
+		SpinnerAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, imageFilters);
+		spinner.setAdapter(adapter);
+	}
 }
