@@ -3,12 +3,16 @@ package com.gridimage;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.datatype.Duration;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,10 +21,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+@SuppressLint("ShowToast")
 public class SearchActivity extends Activity {
 	EditText etQuery;
 	GridView gvResults;
@@ -99,6 +105,11 @@ public class SearchActivity extends Activity {
 	
 	public void imageSearch(View v){
 		//get the queryString
+		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+		String color = prefs.getString("color_filter", "empty");
+//		Log.d("Debug", color);
+		Toast.makeText(this, color, Toast.LENGTH_LONG).show();
+
 		String query = etQuery.getText().toString();
 		String searchQuery = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + query;
 		getImage(searchQuery);
