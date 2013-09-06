@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+//creates Image class with two properties: fullUrl && tbUrl
 public class Image {
 	private String fullUrl;
 	private String tbUrl;
@@ -24,7 +24,7 @@ public class Image {
 	public String toString() {
 		return tbUrl;
 	}
-
+	//
 	public static List<Image> parseJsonArray(JSONArray imageJsonResults){
 		List<Image> result = new ArrayList<Image>();
 		for(int i = 0; i < imageJsonResults.length(); i++){
@@ -40,6 +40,7 @@ public class Image {
 		
 		return result;
 	}
+	//getters and setters for properties
 	public String getTbUrl() {
 		return tbUrl;
 	}

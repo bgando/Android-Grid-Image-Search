@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="searchTerm">Enter Search Term</string>
     <string name="search">Search</string>
+    <string name="txtAdvancedSearch">Advanced Search Options</string>
+    <string name="txtImageSize">Image Size</string>
 
 </resources>
