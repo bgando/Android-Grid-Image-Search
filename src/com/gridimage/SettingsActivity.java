@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
 
@@ -55,10 +54,10 @@ public class SettingsActivity extends Activity {
 		String imageType = (String) spinnerImageType.getSelectedItem();
 		String siteFilter = etSiteFilter.getText().toString();
 		
-		Toast.makeText(this, colorFilter, Toast.LENGTH_LONG).show();
 
 		// Save selected settings
-		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+		SharedPreferences prefs = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+		
 		prefs.edit().putString("color_filter", colorFilter).commit();
 		prefs.edit().putString("image_size", imageSize).commit();
 		prefs.edit().putString("image_type", imageType).commit();

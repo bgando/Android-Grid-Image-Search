@@ -105,10 +105,16 @@ public class SearchActivity extends Activity {
 	
 	public void imageSearch(View v){
 		//get the queryString
-		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+		SharedPreferences prefs = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
 		String color = prefs.getString("color_filter", "empty");
+		String size = prefs.getString("image_size", "empty");
+		String type = prefs.getString("image_type", "empty");
+		String filter = prefs.getString("site_filter", "empty");
 //		Log.d("Debug", color);
-		Toast.makeText(this, color, Toast.LENGTH_LONG).show();
+		Toast.makeText(this, color, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, size, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, filter, Toast.LENGTH_SHORT).show();
 
 		String query = etQuery.getText().toString();
 		String searchQuery = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + query;
