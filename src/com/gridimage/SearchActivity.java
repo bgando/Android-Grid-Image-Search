@@ -83,7 +83,6 @@ public class SearchActivity extends Activity {
 	}
 	//does GET request to image search API using AsyncHttpClient library
 	private void getImage(String query){
-		pageCount = 0;
 		//create a http client
 		AsyncHttpClient client = new AsyncHttpClient(); 
 		//get request
