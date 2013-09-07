@@ -53,11 +53,11 @@ public class SettingsActivity extends Activity {
 		String imageSize = (String) spinnerImageSize.getSelectedItem();
 		String imageType = (String) spinnerImageType.getSelectedItem();
 		String siteFilter = etSiteFilter.getText().toString();
-		
 
 		// Save selected settings
-		SharedPreferences prefs = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
-		
+		SharedPreferences prefs = getSharedPreferences("sharedPreferences",
+				MODE_PRIVATE);
+
 		prefs.edit().putString("color_filter", colorFilter).commit();
 		prefs.edit().putString("image_size", imageSize).commit();
 		prefs.edit().putString("image_type", imageType).commit();
@@ -65,22 +65,25 @@ public class SettingsActivity extends Activity {
 	}
 
 	private void initImageColorFilterSpinner(Spinner spinner) {
-		String[] imageFilters = new String[] { "blue", "green", "red" };
+		String[] imageFilters = new String[] { "black", "blue", "brown",
+				"gray", "green", "orange", "pink", "purple", "red", "teal",
+				"white", "yellow" };
 		SpinnerAdapter adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, imageFilters);
 		spinner.setAdapter(adapter);
 	}
 
 	private void initImageSizeSpinner(Spinner spinner) {
-		String[] imageFilters = new String[] { "small", "medium", "large" };
+		String[] imageFilters = new String[] { "icon", "small", "medium",
+				"large", "xlarge", "xxlarge", "huge" };
 		SpinnerAdapter adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, imageFilters);
 		spinner.setAdapter(adapter);
 	}
 
 	private void initImageTypeSpinner(Spinner spinner) {
-		String[] imageFilters = new String[] { "faces", "animals",
-				"landscapes", "houses" };
+		String[] imageFilters = new String[] { "face", "photo", "clipart",
+				"lineart" };
 		SpinnerAdapter adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, imageFilters);
 		spinner.setAdapter(adapter);
