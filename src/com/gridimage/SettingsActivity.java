@@ -57,6 +57,8 @@ public class SettingsActivity extends Activity {
 		// Save selected settings
 		SharedPreferences prefs = getSharedPreferences("sharedPreferences",
 				MODE_PRIVATE);
+		
+		prefs.edit().clear();
 
 		prefs.edit().putString("color_filter", colorFilter).commit();
 		prefs.edit().putString("image_size", imageSize).commit();

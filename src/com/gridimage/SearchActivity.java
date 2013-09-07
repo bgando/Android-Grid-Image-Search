@@ -52,6 +52,11 @@ public class SearchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 		setupViews();
+		if (savedInstanceState == null) {
+			//clearSharedPreferences
+			SharedPreferences prefs = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+			prefs.edit().clear().commit();
+		}
 	}
 
 	@Override
